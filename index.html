@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest | 이끌림의 법칙 다이어트</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <!-- MediaPipe Hands/Pose via CDN (Future integration) -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1 class="logo">MANIFEST</h1>
+            <nav>
+                <button class="nav-btn active" data-tab="generator">Physique AI</button>
+                <button class="nav-btn" data-tab="analyzer">Vision Analysis</button>
+                <button class="nav-btn" data-tab="overlay">Ghost Overlay</button>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <!-- Physique Generator Section -->
+            <section id="generator" class="tab-content active">
+                <div class="glass-card">
+                    <h2>AI Physique Generator</h2>
+                    <p class="subtitle">당신의 '미래의 몸매'를 시각화하세요.</p>
+                    
+                    <div class="upload-area" id="face-upload">
+                        <div class="icon">👤</div>
+                        <p>얼굴 사진 업로드</p>
+                        <input type="file" id="face-input" hidden>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="goal-prompt">목표 체형 프롬프트</label>
+                        <textarea id="goal-prompt" placeholder="예: 탄탄한 복근과 넓은 어깨를 가진 린매스업 체형"></textarea>
+                    </div>
+
+                    <button class="primary-btn" id="generate-btn">미래의 나 생성하기</button>
+
+                    <div class="result-area hidden" id="generator-result">
+                        <div class="image-container">
+                            <img id="generated-image" src="" alt="AI Generated Physique">
+                            <div class="loading-overlay hidden" id="gen-loading">
+                                <div class="spinner"></div>
+                                <p>AI가 당신의 미래를 그리는 중...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Body Vision Analyzer Section -->
+            <section id="analyzer" class="tab-content">
+                <div class="glass-card">
+                    <h2>Body Vision Analyzer</h2>
+                    <div class="analysis-container">
+                        <div class="view-panel">
+                            <h3>Current Body</h3>
+                            <div class="upload-area" id="current-upload">
+                                <p>현재 사진 업로드</p>
+                                <input type="file" id="current-input" hidden>
+                            </div>
+                            <canvas id="current-canvas"></canvas>
+                        </div>
+                        <div class="metrics-panel">
+                            <div class="progress-circle">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" id="progress-path" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage" id="progress-text">0%</text>
+                                </svg>
+                            </div>
+                            <p class="label">Manifest Match Rate</p>
+                            <div id="distance-info"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ghost Overlay Section -->
+            <section id="overlay" class="tab-content">
+                <div class="glass-card">
+                    <h2>Ghost Overlay Comparison</h2>
+                    <div class="overlay-container">
+                        <div class="compare-view">
+                            <img id="img-target" class="overlay-img" src="" alt="Target Image">
+                            <img id="img-current" class="overlay-img" src="" alt="Current Image">
+                        </div>
+                        <div class="controls">
+                            <label>Opacity Control</label>
+                            <input type="range" id="opacity-slider" min="0" max="1" step="0.01" value="0.5">
+                            <div class="slider-labels">
+                                <span>Target</span>
+                                <span>Current</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 MANIFEST AI. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="vision.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
