@@ -1,8 +1,8 @@
 # Manifest (매니페스트): 이끌림의 법칙 다이어트
 
-> AI를 통해 '미래의 나'를 시각화하고, 현재의 나를 추적하여 강력한 동기부여를 제공하는 다이어트 솔루션
+> **"당신이 원하던 그 몸매, 이미 당신 안에 있습니다. Ghost Overlay로 오늘의 나와 미래의 나를 연결하세요."**
 
-![Manifest UI Preview](C:/Users/io2oi/.gemini/antigravity/brain/86d3140e-cd26-47b2-b2f8-cb904dd30ba3/ghost_overlay_view_1772938064984.png)
+![Manifest UI Preview](assets/preview.png)
 
 ## 🚀 프로젝트 개요 (Context)
 
@@ -26,10 +26,22 @@
 ## 📂 시작하기
 
 ### 웹 상에서 즉시 확인
-현재 프로젝트 루트의 `index.html` 파일을 브라우저로 열면 UI 및 인터랙션 시뮬레이션을 즉시 확인하실 수 있습니다.
+현재 `web/index.html` 파일을 브라우저로 열면 UI 및 인터랙션 시뮬레이션을 즉시 확인하실 수 있습니다.
 
 ### Python 분석기 실행
-신체 키포인트 추출 코드가 포함된 `vision_analyzer.py`를 실행하여 기초적인 정적 이미지 분석을 수행할 수 있습니다. (설치 필요: `pip install mediapipe opencv-python`)
+신체 키포인트 추출 코드가 포함된 `core/vision_analyzer.py`를 실행하기 위해 아래 과정을 거치세요:
+
+```bash
+# 1. 가상환경 생성 및 활성화
+python -m venv venv
+.\venv\Scripts\activate
+
+# 2. 필수 라이브러리 설치
+pip install -r requirements.txt
+
+# 3. 분석기 실행
+python core/vision_analyzer.py
+```
 
 ---
 © 2026 Manifest AI Team.
